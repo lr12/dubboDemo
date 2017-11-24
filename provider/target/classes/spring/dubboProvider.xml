@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="doc-provider-app"/>
+
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" port="20880"/>
+
+    <!-- 使用zookeeper注册中心 -->
+    <!--<dubbo:registry protocol="zookeeper" address="130.1.1.57:2181"/>&lt;!&ndash;正式环境 &ndash;&gt;-->
+    <dubbo:registry protocol="zookeeper" address="localhost:2181"/>
+
+    <dubbo:provider filter="consumerLogFilter"/>
+
+    <!-- 使用multicast广播暴露服务地址 -->
+    <!--<dubbo:registry address="multicast://224.5.6.7:1234"/>-->
+
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="nju.software.interfaces.service.ProviderService" ref="providerService"/>
+
+    <bean id="providerService" class="nju.software.provider.rpc.ProviderServiceImpl" />
+</beans>

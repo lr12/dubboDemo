@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+       default-lazy-init="false">
+
+    <!-- 启用缓存注解功能，这个是必须的，否则注解不会生效，另外，该注解一定要声明在spring主配置文件中才会生效 -->
+    <cache:annotation-driven cache-manager="ehcacheManager" key-generator="dynamicKeyGenerator"/>
+    <!-- cacheManager工厂类，指定ehcache.xml的位置 -->
+    <bean id="ehcacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+        <property name="configLocation" value="classpath:ehcache.xml"/>
+    </bean>
+    <!-- 声明cacheManager -->
+    <bean id="ehcacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+        <property name="cacheManager" ref="ehcacheManagerFactory"/>
+    </bean>
+    <!-- 缓存key生产策略-->
+    <bean id="dynamicKeyGenerator" class="nju.software.docprovider.dynamicds.DynamicKeyGenerator"/>
+
+    <!-- 使用annotation 自动注册bean,并保证@Required,@Autowired的属性被注入 -->
+    <context:annotation-config/>
+    <context:component-scan base-package="nju.software.docprovider.data.dao"/>
+    <context:component-scan base-package="nju.software.docprovider.wxfactory"/>
+    <context:component-scan base-package="nju.software.docprovider.service.impl"/>
+    <context:component-scan base-package="nju.software.docprovider.biz.manager"/>
+    <!--<context:component-scan base-package="software.tjspxt.service.impl"/>-->
+    <!--<context:component-scan base-package="software.tjspxt.biz.manager"/>-->
+    <!--<context:component-scan base-package="software.tjspxt.biz.manager.xxb"/>-->
+    <!--<context:component-scan base-package="software.tjspxt.factory.impl"/>-->
+
+
+    <!-- 单一的数据源 -->
+    <!--<bean id="mDataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">-->
+    <!--<property name="jdbcUrl" value="jdbc:sybase:Tds:130.1.1.92:5000/JUDGE?charset=cp936"/>-->
+    <!--<property name="username" value="fymis"/>-->
+    <!--<property name="password" value="nju36WCCCGCGCGCGCG"/>-->
+    <!--<property name="driverClassName" value="com.sybase.jdbc3.jdbc.SybDriver"/>-->
+    <!--<property name="connectionTestQuery" value="SELECT 1"/>-->
+    <!--&lt;!&ndash;<property name="connectionTimeout" value="30000"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<property name="idleTimeout" value="600000"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<property name="maxLifetime" value="1800000"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<property name="maximumPoolSize" value="100"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<property name="minimumIdle" value="100"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<property name="dataSourceClassName" value="com.sybase.jdbc3.jdbc.SybDataSource"/>&ndash;&gt;-->
+    <!--</bean>-->
+
+
+    <!-- 动态数据源 -->
+    <bean id="mDataSource" class="nju.software.docprovider.dynamicds.DynamicDataSource">
+        <property name="targetDataSources">
+            <map key-type="java.lang.String">
+                <entry key="Tjgytest" value-ref="tjgyTestDataSource"/>
+                <entry key="Tjgyjzk" value-ref="jzkDataSource"/>
+                <entry key="Tjgy" value-ref="tjgyDataSource"/>
+                <entry key="Tjyzy" value-ref="tjyzyDataSource"/>
+                <entry key="Tjezy" value-ref="tjezyDataSource"/>
+                <entry key="Tjhsfy" value-ref="tjhsfyDataSource"/>
+                <entry key="Tjhpfy" value-ref="tjhpfyDataSource"/>
+                <entry key="Tjnkfy" value-ref="tjnkfyDataSource"/>
+                <entry key="Tjhbfy" value-ref="tjhbfyDataSource"/>
+                <entry key="Tjhqfy" value-ref="tjhqfyDataSource"/>
+                <entry key="Tjxqfy" value-ref="tjxqfyDataSource"/>
+                <entry key="Tjbcfy" value-ref="tjbcfyDataSource"/>
+                <entry key="Tjhdfy" value-ref="tjhdfyDataSource"/>
+                <entry key="Tjhxfy" value-ref="tjhxfyDataSource"/>
+                <entry key="Tjtgfy" value-ref="tjtgfyDataSource"/>
+                <entry key="Tjhgfy" value-ref="tjhgfyDataSource"/>
+                <entry key="Tjdgfy" value-ref="tjdgfyDataSource"/>
+                <entry key="Tjdlfy" value-ref="tjdlfyDataSource"/>
+                <entry key="Tjjnfy" value-ref="tjjnfyDataSource"/>
+                <entry key="Tjnhfy" value-ref="tjnhfyDataSource"/>
+                <entry key="Tjwqfy" value-ref="tjwqfyDataSource"/>
+                <entry key="Tjjhfy" value-ref="tjjhfyDataSource"/>
+                <entry key="Tjbdfy" value-ref="tjbdfyDataSource"/>
+                <entry key="Tjjxfy" value-ref="tjjxfyDataSource"/>
+                <entry key="Tjkfqfy" value-ref="tjkfqfyDataSource"/>
+                <entry key="Tjbhxqfy" value-ref="tjbhxqfyDataSource"/>
+                <entry key="Tjtlfy" value-ref="tjtlfyDataSource"/>
+            </map>
+        </property>
+        <property name="defaultTargetDataSource" ref="currentDataSource"/>
+    </bean>
+
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <!--<property name="dataSource" ref="dataSource"/>-->
+        <property name="dataSource" ref="mDataSource"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">
+                    nju.software.docprovider.dynamicds.SybaseServerDialect
+                </prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.connection.release_mode">after_transaction</prop>
+                <prop key="hibernate.transaction.auto_close_session">true</prop>
+            </props>
+        </property>
+        <property name="packagesToScan">
+            <list>
+                <value>nju.software.docprovider.data.dataobject</value>
+                <!--<value>software.tjspxt.data.dataobject</value>-->
+            </list>
+        </property>
+    </bean>
+
+    <!-- 事务管理器配置 -->
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- 加入spring提供的事务管理机制，线程绑定session -->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+
+</beans>
