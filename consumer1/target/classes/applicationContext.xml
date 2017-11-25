@@ -109,7 +109,6 @@
 
     <!-- 用户服务接口 -->
     <!-- retries表示失败后的重试次数，timeout表示超时时间，actives表示客户端并发限制数 服务端并发控制可用executes参数 -->
-    <dubbo:reference id="providerService" interface="nju.software.interfaces.service.ProviderService" >
-
-    </dubbo:reference>
+    <dubbo:reference id="providerService" interface="nju.software.interfaces.service.ProviderService" version="1.0.0" />
+    <dubbo:reference id="multiversionService" interface="nju.software.interfaces.service.ProviderService" version="2.0.0" />
 </beans>

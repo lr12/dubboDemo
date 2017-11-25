@@ -20,7 +20,8 @@
     <!--<dubbo:registry address="multicast://224.5.6.7:1234"/>-->
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="nju.software.interfaces.service.ProviderService" ref="providerService"/>
-
+    <dubbo:service interface="nju.software.interfaces.service.ProviderService" ref="providerService" timeout="3000" version="1.0.0" retries="1"/>
+    <dubbo:service interface="nju.software.interfaces.service.ProviderService" ref="multiVsersionService" timeout="3000" version="2.0.0" retries="1"/>
+    <bean id="multiVsersionService" class="nju.software.provider.rpc.MultiVersionServiceImpl" />
     <bean id="providerService" class="nju.software.provider.rpc.ProviderServiceImpl" />
 </beans>

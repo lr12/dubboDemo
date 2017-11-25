@@ -25,7 +25,7 @@ public class Test {
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"classpath:applicationContext.xml",
 				"classpath:applicationContextDataSource.xml");
-	    ProviderService providerService=(ProviderService) applicationContext.getBean("providerService");
+	    ProviderService providerService=(ProviderService) applicationContext.getBean("multiversionService");
 	    while(true){
 	    	System.out.println(providerService.sayHello("lr"));
 	    	Thread.sleep(1000);
