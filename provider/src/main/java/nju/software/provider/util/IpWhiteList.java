@@ -8,7 +8,7 @@ public class IpWhiteList {
 	public static final List<String> whiteIps;
 	static{
 		whiteIps=new ArrayList<String>();
-		whiteIps.add("192.168.79.140");
+		whiteIps.add("192.168.79.141");
 	}
 	
 }
