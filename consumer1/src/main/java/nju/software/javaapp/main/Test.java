@@ -16,6 +16,9 @@ import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.alibaba.dubbo.config.ReferenceConfig;
+import com.alibaba.dubbo.rpc.service.GenericService;
+
 public class Test {
 
 
@@ -25,11 +28,15 @@ public class Test {
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"classpath:applicationContext.xml",
 				"classpath:applicationContextDataSource.xml");
-	    ProviderService providerService=(ProviderService) applicationContext.getBean("multiversionService");
-	    while(true){
+	    GenericService genericService=(GenericService) applicationContext.getBean("providerService");
+	
+	     
+	    // 基本类型以及Date,List,Map等不需要转换，直接调用 
+	    System.out.println(genericService.$invoke("sayHello", new String[] {"java.lang.String"}, new Object[] {"world"}));
+	   /* while(true){
 	    	System.out.println(providerService.sayHello("lr"));
-	    	Thread.sleep(1000);
-	    }
+	    	Thread.sleep(10000);
+	    }*/
 	}
 
 }

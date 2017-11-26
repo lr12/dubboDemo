@@ -1,180 +1,25 @@
-2017-11-25 14:58:23 [org.springframework.boot.StartupInfoLogger:48] - Starting Application on DESKTOP-UJKHSGJ with PID 12000 (D:\dubbo\demo\provider\target\classes started by lr12 in D:\dubbo\demo\provider)
-2017-11-25 14:58:23 [org.springframework.boot.SpringApplication:593] - No active profile set, falling back to default profiles: default
-2017-11-25 14:58:31 [org.apache.juli.logging.DirectJDKLog:179] - Starting service [Tomcat]
-2017-11-25 14:58:31 [org.apache.juli.logging.DirectJDKLog:179] - Starting Servlet Engine: Apache Tomcat/8.5.16
-2017-11-25 14:58:33 [org.apache.juli.logging.DirectJDKLog:179] - Initializing Spring embedded WebApplicationContext
-2017-11-25 14:58:41 [org.apache.juli.logging.DirectJDKLog:179] - Initializing ProtocolHandler ["http-nio-9999"]
-2017-11-25 14:58:41 [org.apache.juli.logging.DirectJDKLog:179] - Starting ProtocolHandler ["http-nio-9999"]
-2017-11-25 14:58:41 [org.apache.juli.logging.DirectJDKLog:179] - Using a shared selector for servlet write/read
-2017-11-25 14:58:41 [org.springframework.boot.StartupInfoLogger:57] - Started Application in 18.262 seconds (JVM running for 26.761)
-2017-11-25 14:58:41 [nju.software.provider.Application:67] - SpringBoot Start Success
-2017-11-25 17:30:02 [org.springframework.boot.StartupInfoLogger:48] - Starting Application on DESKTOP-UJKHSGJ with PID 6520 (D:\dubbo\demo\provider\target\classes started by lr12 in D:\dubbo\demo\provider)
-2017-11-25 17:30:02 [org.springframework.boot.SpringApplication:593] - No active profile set, falling back to default profiles: default
-2017-11-25 17:30:08 [org.apache.juli.logging.DirectJDKLog:179] - Starting service [Tomcat]
-2017-11-25 17:30:08 [org.apache.juli.logging.DirectJDKLog:179] - Starting Servlet Engine: Apache Tomcat/8.5.16
-2017-11-25 17:30:08 [org.apache.juli.logging.DirectJDKLog:179] - Initializing Spring embedded WebApplicationContext
-2017-11-25 17:30:13 [org.apache.juli.logging.DirectJDKLog:179] - Stopping service [Tomcat]
-2017-11-25 17:30:13 [org.apache.juli.logging.DirectJDKLog:179] - The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.lang.Object.wait(Native Method)
- java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
- com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:40)
-2017-11-25 17:30:13 [org.springframework.boot.SpringApplication:771] - Application startup failed
-com.alibaba.dubbo.rpc.RpcException: Fail to start server(url: dubbo://192.168.79.140:20880/nju.software.interfaces.service.ProviderService?anyhost=true&application=doc-provider-app&channel.readonly.sent=true&codec=dubbo&default.service.filter=consumerLogFilter&dubbo=2.5.3&heartbeat=60000&interface=nju.software.interfaces.service.ProviderService&methods=sayHello&pid=6520&retries=1&revision=1.0.0&side=provider&timeout=3000&timestamp=1511602213067&version=1.0.0) Failed to bind NettyServer on /192.168.79.140:20880, cause: Failed to bind to: /0.0.0.0:20880
-	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol.createServer(DubboProtocol.java:289) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol.openServer(DubboProtocol.java:266) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol.export(DubboProtocol.java:253) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:56) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:55) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.Protocol$Adpative.export(Protocol$Adpative.java) ~[na:2.5.3]
-	at com.alibaba.dubbo.registry.integration.RegistryProtocol.doLocalExport(RegistryProtocol.java:153) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.registry.integration.RegistryProtocol.export(RegistryProtocol.java:107) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:54) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:53) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.Protocol$Adpative.export(Protocol$Adpative.java) ~[na:2.5.3]
-	at com.alibaba.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:485) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:281) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:242) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.config.ServiceConfig.export(ServiceConfig.java:143) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:109) ~[dubbo-2.5.3.jar:2.5.3]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:167) ~[spring-context-4.3.10.RELEASE.jar:4.3.10.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-4.3.10.RELEASE.jar:4.3.10.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:393) ~[spring-context-4.3.10.RELEASE.jar:4.3.10.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:347) ~[spring-context-4.3.10.RELEASE.jar:4.3.10.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:883) ~[spring-context-4.3.10.RELEASE.jar:4.3.10.RELEASE]
-	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:144) ~[spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) ~[spring-context-4.3.10.RELEASE.jar:4.3.10.RELEASE]
-	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) ~[spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
-	at nju.software.provider.Application.main(Application.java:64) [classes/:na]
-Caused by: com.alibaba.dubbo.remoting.RemotingException: Failed to bind NettyServer on /192.168.79.140:20880, cause: Failed to bind to: /0.0.0.0:20880
-	at com.alibaba.dubbo.remoting.transport.AbstractServer.<init>(AbstractServer.java:72) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.remoting.transport.netty.NettyServer.<init>(NettyServer.java:63) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.remoting.transport.netty.NettyTransporter.bind(NettyTransporter.java:33) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.remoting.Transporter$Adpative.bind(Transporter$Adpative.java) ~[na:2.5.3]
-	at com.alibaba.dubbo.remoting.Transporters.bind(Transporters.java:48) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchanger.bind(HeaderExchanger.java:41) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.remoting.exchange.Exchangers.bind(Exchangers.java:63) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol.createServer(DubboProtocol.java:287) ~[dubbo-2.5.3.jar:2.5.3]
-	... 29 common frames omitted
-Caused by: org.jboss.netty.channel.ChannelException: Failed to bind to: /0.0.0.0:20880
-	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:303) ~[netty-3.2.5.Final.jar:na]
-	at com.alibaba.dubbo.remoting.transport.netty.NettyServer.doOpen(NettyServer.java:94) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.remoting.transport.AbstractServer.<init>(AbstractServer.java:67) ~[dubbo-2.5.3.jar:2.5.3]
-	... 36 common frames omitted
-Caused by: java.net.BindException: Address already in use: bind
-	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_144]
-	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_144]
-	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_144]
-	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_144]
-	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_144]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.bind(NioServerSocketPipelineSink.java:148) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.handleServerSocket(NioServerSocketPipelineSink.java:100) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.eventSunk(NioServerSocketPipelineSink.java:74) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.channel.Channels.bind(Channels.java:468) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.channel.AbstractChannel.bind(AbstractChannel.java:192) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.bootstrap.ServerBootstrap$Binder.channelOpen(ServerBootstrap.java:348) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.channel.Channels.fireChannelOpen(Channels.java:176) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannel.<init>(NioServerSocketChannel.java:85) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:142) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:90) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:282) ~[netty-3.2.5.Final.jar:na]
-	... 38 common frames omitted
-2017-11-25 17:36:45 [org.springframework.boot.StartupInfoLogger:48] - Starting Application on DESKTOP-UJKHSGJ with PID 8200 (D:\dubbo\demo\provider\target\classes started by lr12 in D:\dubbo\demo\provider)
-2017-11-25 17:36:45 [org.springframework.boot.SpringApplication:593] - No active profile set, falling back to default profiles: default
-2017-11-25 17:36:50 [org.apache.juli.logging.DirectJDKLog:179] - Starting service [Tomcat]
-2017-11-25 17:36:50 [org.apache.juli.logging.DirectJDKLog:179] - Starting Servlet Engine: Apache Tomcat/8.5.16
-2017-11-25 17:36:51 [org.apache.juli.logging.DirectJDKLog:179] - Initializing Spring embedded WebApplicationContext
-2017-11-25 17:36:56 [org.apache.juli.logging.DirectJDKLog:179] - Initializing ProtocolHandler ["http-nio-9999"]
-2017-11-25 17:36:56 [org.apache.juli.logging.DirectJDKLog:179] - Starting ProtocolHandler ["http-nio-9999"]
-2017-11-25 17:36:56 [org.apache.juli.logging.DirectJDKLog:179] - Using a shared selector for servlet write/read
-2017-11-25 17:36:56 [org.springframework.boot.StartupInfoLogger:57] - Started Application in 12.453 seconds (JVM running for 16.173)
-2017-11-25 17:36:56 [nju.software.provider.Application:67] - SpringBoot Start Success
-2017-11-25 20:16:29 [org.springframework.boot.StartupInfoLogger:48] - Starting Application on DESKTOP-UJKHSGJ with PID 9440 (D:\dubbo\demo\provider\target\classes started by lr12 in D:\dubbo\demo\provider)
-2017-11-25 20:16:29 [org.springframework.boot.SpringApplication:593] - No active profile set, falling back to default profiles: default
-2017-11-25 20:16:37 [org.apache.juli.logging.DirectJDKLog:179] - Starting service [Tomcat]
-2017-11-25 20:16:37 [org.apache.juli.logging.DirectJDKLog:179] - Starting Servlet Engine: Apache Tomcat/8.5.16
-2017-11-25 20:16:37 [org.apache.juli.logging.DirectJDKLog:179] - Initializing Spring embedded WebApplicationContext
-2017-11-25 20:16:43 [org.apache.juli.logging.DirectJDKLog:179] - Initializing ProtocolHandler ["http-nio-9999"]
-2017-11-25 20:16:43 [org.apache.juli.logging.DirectJDKLog:179] - Starting ProtocolHandler ["http-nio-9999"]
-2017-11-25 20:16:43 [org.apache.juli.logging.DirectJDKLog:179] - Using a shared selector for servlet write/read
-2017-11-25 20:16:43 [org.springframework.boot.StartupInfoLogger:57] - Started Application in 14.841 seconds (JVM running for 18.228)
-2017-11-25 20:16:43 [nju.software.provider.Application:67] - SpringBoot Start Success
-2017-11-25 20:19:11 [org.springframework.boot.StartupInfoLogger:48] - Starting Application on DESKTOP-UJKHSGJ with PID 1508 (D:\dubbo\demo\provider\target\classes started by lr12 in D:\dubbo\demo\provider)
-2017-11-25 20:19:11 [org.springframework.boot.SpringApplication:593] - No active profile set, falling back to default profiles: default
-2017-11-25 20:19:15 [org.apache.juli.logging.DirectJDKLog:179] - Starting service [Tomcat]
-2017-11-25 20:19:15 [org.apache.juli.logging.DirectJDKLog:179] - Starting Servlet Engine: Apache Tomcat/8.5.16
-2017-11-25 20:19:15 [org.apache.juli.logging.DirectJDKLog:179] - Initializing Spring embedded WebApplicationContext
-2017-11-25 20:19:19 [org.apache.juli.logging.DirectJDKLog:179] - Stopping service [Tomcat]
-2017-11-25 20:19:19 [org.apache.juli.logging.DirectJDKLog:179] - The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.lang.Object.wait(Native Method)
- java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
- com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:40)
-2017-11-25 20:19:19 [org.springframework.boot.SpringApplication:771] - Application startup failed
-com.alibaba.dubbo.rpc.RpcException: Fail to start server(url: dubbo://192.168.79.140:20880/nju.software.interfaces.service.ProviderService?anyhost=true&application=doc-provider-app&channel.readonly.sent=true&codec=dubbo&default.service.filter=consumerLogFilter&dubbo=2.5.3&heartbeat=60000&interface=nju.software.interfaces.service.ProviderService&methods=sayHello&pid=1508&retries=1&revision=1.0.0&side=provider&timeout=3000&timestamp=1511612359014&version=1.0.0) Failed to bind NettyServer on /192.168.79.140:20880, cause: Failed to bind to: /0.0.0.0:20880
-	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol.createServer(DubboProtocol.java:289) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol.openServer(DubboProtocol.java:266) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol.export(DubboProtocol.java:253) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:55) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:56) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.Protocol$Adpative.export(Protocol$Adpative.java) ~[na:2.5.3]
-	at com.alibaba.dubbo.registry.integration.RegistryProtocol.doLocalExport(RegistryProtocol.java:153) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.registry.integration.RegistryProtocol.export(RegistryProtocol.java:107) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:53) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:54) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.Protocol$Adpative.export(Protocol$Adpative.java) ~[na:2.5.3]
-	at com.alibaba.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:485) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:281) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:242) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.config.ServiceConfig.export(ServiceConfig.java:143) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.config.spring.ServiceBean.onApplicationEvent(ServiceBean.java:109) ~[dubbo-2.5.3.jar:2.5.3]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:167) ~[spring-context-4.3.10.RELEASE.jar:4.3.10.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-4.3.10.RELEASE.jar:4.3.10.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:393) ~[spring-context-4.3.10.RELEASE.jar:4.3.10.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:347) ~[spring-context-4.3.10.RELEASE.jar:4.3.10.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:883) ~[spring-context-4.3.10.RELEASE.jar:4.3.10.RELEASE]
-	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:144) ~[spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) ~[spring-context-4.3.10.RELEASE.jar:4.3.10.RELEASE]
-	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) ~[spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
-	at nju.software.provider.Application.main(Application.java:64) [classes/:na]
-Caused by: com.alibaba.dubbo.remoting.RemotingException: Failed to bind NettyServer on /192.168.79.140:20880, cause: Failed to bind to: /0.0.0.0:20880
-	at com.alibaba.dubbo.remoting.transport.AbstractServer.<init>(AbstractServer.java:72) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.remoting.transport.netty.NettyServer.<init>(NettyServer.java:63) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.remoting.transport.netty.NettyTransporter.bind(NettyTransporter.java:33) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.remoting.Transporter$Adpative.bind(Transporter$Adpative.java) ~[na:2.5.3]
-	at com.alibaba.dubbo.remoting.Transporters.bind(Transporters.java:48) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchanger.bind(HeaderExchanger.java:41) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.remoting.exchange.Exchangers.bind(Exchangers.java:63) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol.createServer(DubboProtocol.java:287) ~[dubbo-2.5.3.jar:2.5.3]
-	... 29 common frames omitted
-Caused by: org.jboss.netty.channel.ChannelException: Failed to bind to: /0.0.0.0:20880
-	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:303) ~[netty-3.2.5.Final.jar:na]
-	at com.alibaba.dubbo.remoting.transport.netty.NettyServer.doOpen(NettyServer.java:94) ~[dubbo-2.5.3.jar:2.5.3]
-	at com.alibaba.dubbo.remoting.transport.AbstractServer.<init>(AbstractServer.java:67) ~[dubbo-2.5.3.jar:2.5.3]
-	... 36 common frames omitted
-Caused by: java.net.BindException: Address already in use: bind
-	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_144]
-	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_144]
-	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_144]
-	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_144]
-	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_144]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.bind(NioServerSocketPipelineSink.java:148) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.handleServerSocket(NioServerSocketPipelineSink.java:100) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketPipelineSink.eventSunk(NioServerSocketPipelineSink.java:74) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.channel.Channels.bind(Channels.java:468) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.channel.AbstractChannel.bind(AbstractChannel.java:192) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.bootstrap.ServerBootstrap$Binder.channelOpen(ServerBootstrap.java:348) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.channel.Channels.fireChannelOpen(Channels.java:176) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannel.<init>(NioServerSocketChannel.java:85) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:142) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory.newChannel(NioServerSocketChannelFactory.java:90) ~[netty-3.2.5.Final.jar:na]
-	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:282) ~[netty-3.2.5.Final.jar:na]
-	... 38 common frames omitted
+2017-11-26 12:35:42 [org.springframework.boot.StartupInfoLogger:48] - Starting Application on DESKTOP-UJKHSGJ with PID 1196 (D:\dubbo\demo\provider\target\classes started by lr12 in D:\dubbo\demo\provider)
+2017-11-26 12:35:43 [org.springframework.boot.SpringApplication:593] - No active profile set, falling back to default profiles: default
+2017-11-26 12:35:49 [org.apache.juli.logging.DirectJDKLog:179] - Starting service [Tomcat]
+2017-11-26 12:35:49 [org.apache.juli.logging.DirectJDKLog:179] - Starting Servlet Engine: Apache Tomcat/8.5.16
+2017-11-26 12:35:51 [org.apache.juli.logging.DirectJDKLog:179] - Initializing Spring embedded WebApplicationContext
+2017-11-26 12:36:47 [org.springframework.boot.StartupInfoLogger:48] - Starting Application on DESKTOP-UJKHSGJ with PID 13920 (D:\dubbo\demo\provider\target\classes started by lr12 in D:\dubbo\demo\provider)
+2017-11-26 12:36:47 [org.springframework.boot.SpringApplication:593] - No active profile set, falling back to default profiles: default
+2017-11-26 12:36:53 [org.apache.juli.logging.DirectJDKLog:179] - Starting service [Tomcat]
+2017-11-26 12:36:53 [org.apache.juli.logging.DirectJDKLog:179] - Starting Servlet Engine: Apache Tomcat/8.5.16
+2017-11-26 12:36:53 [org.apache.juli.logging.DirectJDKLog:179] - Initializing Spring embedded WebApplicationContext
+2017-11-26 12:39:13 [org.springframework.boot.StartupInfoLogger:48] - Starting Application on DESKTOP-UJKHSGJ with PID 816 (D:\dubbo\demo\provider\target\classes started by lr12 in D:\dubbo\demo\provider)
+2017-11-26 12:39:13 [org.springframework.boot.SpringApplication:593] - No active profile set, falling back to default profiles: default
+2017-11-26 12:39:19 [org.apache.juli.logging.DirectJDKLog:179] - Starting service [Tomcat]
+2017-11-26 12:39:19 [org.apache.juli.logging.DirectJDKLog:179] - Starting Servlet Engine: Apache Tomcat/8.5.16
+2017-11-26 12:39:19 [org.apache.juli.logging.DirectJDKLog:179] - Initializing Spring embedded WebApplicationContext
+2017-11-26 12:40:15 [org.springframework.boot.StartupInfoLogger:48] - Starting Application on DESKTOP-UJKHSGJ with PID 16004 (D:\dubbo\demo\provider\target\classes started by lr12 in D:\dubbo\demo\provider)
+2017-11-26 12:40:15 [org.springframework.boot.SpringApplication:593] - No active profile set, falling back to default profiles: default
+2017-11-26 12:40:22 [org.apache.juli.logging.DirectJDKLog:179] - Starting service [Tomcat]
+2017-11-26 12:40:22 [org.apache.juli.logging.DirectJDKLog:179] - Starting Servlet Engine: Apache Tomcat/8.5.16
+2017-11-26 12:40:22 [org.apache.juli.logging.DirectJDKLog:179] - Initializing Spring embedded WebApplicationContext
+2017-11-26 12:41:13 [org.apache.juli.logging.DirectJDKLog:179] - Initializing ProtocolHandler ["http-nio-9999"]
+2017-11-26 12:41:14 [org.apache.juli.logging.DirectJDKLog:179] - Starting ProtocolHandler ["http-nio-9999"]
+2017-11-26 12:41:14 [org.apache.juli.logging.DirectJDKLog:179] - Using a shared selector for servlet write/read
+2017-11-26 12:41:14 [org.springframework.boot.StartupInfoLogger:57] - Started Application in 60.027 seconds (JVM running for 63.749)
+2017-11-26 12:41:14 [nju.software.provider.Application:77] - SpringBoot Start Success

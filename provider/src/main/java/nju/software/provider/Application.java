@@ -4,7 +4,6 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 import org.apache.ibatis.session.SqlSessionFactory;
-
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
@@ -21,6 +20,15 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 
 
+
+
+
+
+
+import com.alibaba.dubbo.common.URL;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+import com.alibaba.dubbo.registry.Registry;
+import com.alibaba.dubbo.registry.RegistryFactory;
 
 import javax.sql.DataSource;
 
@@ -64,6 +72,8 @@ public class Application {
         SpringApplication.run(Application.class, args);
        
         //System.out.println("es test");
+       
+
         logger.info("SpringBoot Start Success");
         
     }

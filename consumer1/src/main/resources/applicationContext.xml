@@ -101,7 +101,7 @@
 	<!-- 加入spring提供的事务管理机制，线程绑定session -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
     <!-- dubbo -->
-     <dubbo:application name="consumer1"/>
+     <dubbo:application name="consumer" />
     <dubbo:registry address="zookeeper://localhost:2181"/>
     <dubbo:protocol name="http" port="8889"/>
     <dubbo:protocol name="hessian" port="8890"/>
@@ -109,6 +109,6 @@
 
     <!-- 用户服务接口 -->
     <!-- retries表示失败后的重试次数，timeout表示超时时间，actives表示客户端并发限制数 服务端并发控制可用executes参数 -->
-    <dubbo:reference id="providerService" interface="nju.software.interfaces.service.ProviderService" version="1.0.0" />
-    <dubbo:reference id="multiversionService" interface="nju.software.interfaces.service.ProviderService" version="2.0.0" />
+    <dubbo:reference id="providerService" generic="true" interface="nju.software.interfaces.service.ProviderService" version="1.0.0" />
+    <dubbo:reference id="multiversionService"  interface="nju.software.interfaces.service.ProviderService" version="2.0.0" />
 </beans>
