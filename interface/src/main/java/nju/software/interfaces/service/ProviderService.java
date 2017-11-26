@@ -9,4 +9,6 @@ package nju.software.interfaces.service;
 public interface ProviderService {
 
    public String sayHello(String name);
+   
+   public String asyncHello(String name);
 }

@@ -23,3 +23,13 @@
 2017-11-26 12:41:14 [org.apache.juli.logging.DirectJDKLog:179] - Using a shared selector for servlet write/read
 2017-11-26 12:41:14 [org.springframework.boot.StartupInfoLogger:57] - Started Application in 60.027 seconds (JVM running for 63.749)
 2017-11-26 12:41:14 [nju.software.provider.Application:77] - SpringBoot Start Success
+2017-11-26 13:50:43 [org.springframework.boot.StartupInfoLogger:48] - Starting Application on DESKTOP-UJKHSGJ with PID 16072 (D:\dubbo\demo\provider\target\classes started by lr12 in D:\dubbo\demo\provider)
+2017-11-26 13:50:43 [org.springframework.boot.SpringApplication:593] - No active profile set, falling back to default profiles: default
+2017-11-26 13:50:49 [org.apache.juli.logging.DirectJDKLog:179] - Starting service [Tomcat]
+2017-11-26 13:50:49 [org.apache.juli.logging.DirectJDKLog:179] - Starting Servlet Engine: Apache Tomcat/8.5.16
+2017-11-26 13:50:50 [org.apache.juli.logging.DirectJDKLog:179] - Initializing Spring embedded WebApplicationContext
+2017-11-26 13:51:00 [org.apache.juli.logging.DirectJDKLog:179] - Initializing ProtocolHandler ["http-nio-9999"]
+2017-11-26 13:51:00 [org.apache.juli.logging.DirectJDKLog:179] - Starting ProtocolHandler ["http-nio-9999"]
+2017-11-26 13:51:00 [org.apache.juli.logging.DirectJDKLog:179] - Using a shared selector for servlet write/read
+2017-11-26 13:51:00 [org.springframework.boot.StartupInfoLogger:57] - Started Application in 18.388 seconds (JVM running for 22.984)
+2017-11-26 13:51:00 [nju.software.provider.Application:77] - SpringBoot Start Success

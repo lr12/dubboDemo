@@ -10,4 +10,15 @@ public class ProviderServiceImpl implements ProviderService{
 		return name+":hello";
 	}
 
+	@Override
+	public String asyncHello(String name) {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return name+":hello(async)";
+	}
+
 }

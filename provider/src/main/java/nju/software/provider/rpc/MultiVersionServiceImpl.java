@@ -10,4 +10,16 @@ public class MultiVersionServiceImpl implements ProviderService {
 		return "vsersion2:"+name+":hello";
 	}
 
+	@Override
+	public String asyncHello(String name) {
+		// TODO Auto-generated method stub
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "vsersion2:"+name+":hello(aync)";
+	}
+
 }
